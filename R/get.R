@@ -1,8 +1,8 @@
-# Functions to get data from the DfT Road Traffic API
+# Functions to fetching data from the DfT Road Traffic API
 
-#' Get road traffic data for a constituency
+#' Fetch road traffic data for a constituency
 #'
-#' \code {get_traffic_constituency} gets the average annual daily flow
+#' \code {fetch_traffic_constituency} fetches the average annual daily flow
 #' of road raffic recorded on all count points within a given GB Parliamentary
 #' constituency since the year 2000. Results are returned as a tibble.
 #'
@@ -20,14 +20,14 @@
 #' a given constituency.
 #'
 #' @examples
-#' get_traffic_constituency(constituency = "St Ives")
-#' get_traffic_constituency(constituency = c("St Ives", "Ashford"), year = 2000)
-#' get_traffic_constituency(constituency = "St Ives", year = 2000:2005)
-#' get_traffic_constituency(constituency = "St Ives", year = c(2000, 2010, 2018))
-#' get_traffic_constituency(constituency = "St Ives", direction = TRUE)
-#' get_traffic_constituency(constituency = "St Ives", year = 2000, raw = TRUE)
+#' fetch_traffic_constituency(constituency = "St Ives")
+#' fetch_traffic_constituency(constituency = c("St Ives", "Ashford"), year = 2000)
+#' fetch_traffic_constituency(constituency = "St Ives", year = 2000:2005)
+#' fetch_traffic_constituency(constituency = "St Ives", year = c(2000, 2010, 2018))
+#' fetch_traffic_constituency(constituency = "St Ives", direction = TRUE)
+#' fetch_traffic_constituency(constituency = "St Ives", year = 2000, raw = TRUE)
 
-get_traffic_constituency <- function(
+fetch_traffic_constituency <- function(
   constituency = NA,
   year = NA,
   direction = FALSE,
@@ -54,9 +54,9 @@ get_traffic_constituency <- function(
   result
 }
 
-#' Get road traffic data for a local authority
+#' Fetch road traffic data for a local authority
 #'
-#' \code {get_traffic_authority} gets the average annual daily flow
+#' \code {fetch_traffic_authority} fetches the average annual daily flow
 #' of road raffic recorded on all count points within a given GB local
 #' authority since the year 2000. Results are returned as a tibble.
 #'
@@ -74,14 +74,14 @@ get_traffic_constituency <- function(
 #' a given local authority.
 #'
 #' @examples
-#' get_traffic_authority(authority = "Swansea")
-#' get_traffic_authority(authority = c("Swansea", "Lambeth"), year = 2000)
-#' get_traffic_authority(authority = "Swansea", year = 2000:2005)
-#' get_traffic_authority(authority = "Swansea", year = c(2000, 2010, 2018))
-#' get_traffic_authority(authority = "Swansea", direction = TRUE)
-#' get_traffic_authority(authority = "Swansea", year = 2000, raw = TRUE)
+#' fetch_traffic_authority(authority = "Swansea")
+#' fetch_traffic_authority(authority = c("Swansea", "Lambeth"), year = 2000)
+#' fetch_traffic_authority(authority = "Swansea", year = 2000:2005)
+#' fetch_traffic_authority(authority = "Swansea", year = c(2000, 2010, 2018))
+#' fetch_traffic_authority(authority = "Swansea", direction = TRUE)
+#' fetch_traffic_authority(authority = "Swansea", year = 2000, raw = TRUE)
 
-get_traffic_authority <- function(
+fetch_traffic_authority <- function(
   authority = NA,
   year = NA,
   direction = FALSE,
@@ -108,9 +108,9 @@ get_traffic_authority <- function(
   result
 }
 
-#' Get road traffic data for a region
+#' Fetch road traffic data for a region
 #'
-#' \code {get_traffic_region} gets the average annual daily flow
+#' \code {fetch_traffic_region} fetches the average annual daily flow
 #' of road raffic recorded on all count points within a given GB region
 #' since the year 2000. Results are returned as a tibble.
 #'
@@ -128,14 +128,14 @@ get_traffic_authority <- function(
 #' a given region.
 #'
 #' @examples
-#' get_traffic_region(region = "London")
-#' get_traffic_region(region = c("London", "South West"), year = 2000)
-#' get_traffic_region(region = "London", year = 2000:2005)
-#' get_traffic_region(region = "London", year = c(2000, 2010, 2018))
-#' get_traffic_region(region = "London", direction = TRUE)
-#' get_traffic_region(region = "London", year = 2000, raw = TRUE)
+#' fetch_traffic_region(region = "London")
+#' fetch_traffic_region(region = c("London", "South West"), year = 2000)
+#' fetch_traffic_region(region = "London", year = 2000:2005)
+#' fetch_traffic_region(region = "London", year = c(2000, 2010, 2018))
+#' fetch_traffic_region(region = "London", direction = TRUE)
+#' fetch_traffic_region(region = "London", year = 2000, raw = TRUE)
 
-get_traffic_region <- function(
+fetch_traffic_region <- function(
   region = NA,
   year = NA,
   direction = FALSE,
@@ -162,9 +162,9 @@ get_traffic_region <- function(
   result
 }
 
-#' Get all road traffic data
+#' Fetch all road traffic data
 #'
-#' \code {get_traffic_all} gets the average annual daily flow
+#' \code {fetch_traffic_all} fetches the average annual daily flow
 #' of road raffic recorded on all count points within Great Britain since
 #' the year 2000. Results are returned as a tibble.
 #'
@@ -175,10 +175,10 @@ get_traffic_region <- function(
 #' all counts in Great Britain.
 #'
 #' @examples
-#' get_traffic_all()
-#' get_traffic_all(direction = TRUE)
+#' fetch_traffic_all()
+#' fetch_traffic_all(direction = TRUE)
 
-get_traffic_all <- function(direction = FALSE) {
+fetch_traffic_all <- function(direction = FALSE) {
 
   traffic_download <- tempfile()
 
@@ -195,18 +195,18 @@ get_traffic_all <- function(direction = FALSE) {
   result
 }
 
-#' Get historic regional road traffic data
+#' Fetch historic regional road traffic data
 #'
-#' \code {get_traffic_region_historic} gets the annual total volume of road
+#' \code {fetch_traffic_region_historic} fetches the annual total volume of road
 #' traffic across each GB region since 1993. Results are returned as a tibble.
 #'
 #' @return A tibble showing the annual total volume of road traffic across
 #' each GB region since 1993.
 #'
 #' @examples
-#' get_traffic_region_historic()
+#' fetch_traffic_region_historic()
 
-get_traffic_region_historic <- function() {
+fetch_traffic_region_historic <- function() {
   result <- readr::read_csv(REGION_HISTORIC, col_types = readr::cols()) %>%
     dplyr::rename(
       "region_ons_code" = ons_code,
@@ -230,9 +230,9 @@ get_traffic_region_historic <- function() {
   result
 }
 
-#' Get historic authority road traffic data
+#' Fetch historic authority road traffic data
 #'
-#' \code {get_traffic_authority_historic} gets the annual total volume of road
+#' \code {fetch_traffic_authority_historic} fetches the annual total volume of road
 #' traffic across each GB local authority since 1993.
 #' Results are returned as a tibble.
 #'
@@ -240,9 +240,9 @@ get_traffic_region_historic <- function() {
 #' each GB local authority since 1993.
 #'
 #' @examples
-#' get_traffic_authority_historic()
+#' fetch_traffic_authority_historic()
 
-get_traffic_authority_historic <- function() {
+fetch_traffic_authority_historic <- function() {
   readr::read_csv(AUTHORITY_HISTORIC, col_types = readr::cols()) %>%
     dplyr::rename(
       "local_authority_name" = name,
