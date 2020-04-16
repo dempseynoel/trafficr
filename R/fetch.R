@@ -31,7 +31,7 @@
 
 fetch_traffic_constituency <- function(
   constituency = NA,
-  year = 2000:2018,
+  year = NA,
   direction = FALSE,
   raw = FALSE) {
 
@@ -87,7 +87,7 @@ fetch_traffic_constituency <- function(
 
 fetch_traffic_authority <- function(
   authority = NA,
-  year = 2000:2018,
+  year = NA,
   direction = FALSE,
   raw = FALSE) {
 
@@ -143,7 +143,7 @@ fetch_traffic_authority <- function(
 
 fetch_traffic_region <- function(
   region = NA,
-  year = 2000:2018,
+  year = NA,
   direction = FALSE,
   raw = FALSE) {
 
@@ -164,6 +164,62 @@ fetch_traffic_region <- function(
   direction_raw <- process_direction_raw(direction, raw)
   api_url <- process_pagination(
    stringr::str_glue("{URL_API_FEED}{direction_raw}{filters}"))
+  result <- process_columns_api(process_dir_codes(process_api_url(api_url)))
+  result
+}
+
+#' Fetch road traffic data for a road
+#'
+#' \code {fetch_traffic_road} fetches the average annual daily flow
+#' of road raffic recorded on all count points along a road
+#' since the year 2000. Results are returned as a tibble.
+#'
+#' @param region A character string of the official road name
+#' of interest written within a pair of single or double qoutes.
+#' @param year A numeric no smaller than 2000.
+#' @param direction A boolean which if TRUE shows the average annual daily flow
+#' of road traffic by direction of travel. It is set FALSE by default.
+#' @param raw A boolean which if TRUE shows the actual manual counts taken at
+#' count point locations. Raw counts are collected by trained enumerators and
+#' are used to feed into calculating the average daily flow estimates.
+#' It is set to FALSE by default.
+#'
+#' @return A tibble showing the average annual daily flow of traffic for
+#' a given road.
+#'
+#' @examples
+#' fetch_traffic_road(road = "A45")
+#' fetch_traffic_road(road = c("A45", "A665"), year = 2000)
+#' fetch_traffic_road(road = "A45", year = 2000:2005)
+#' fetch_traffic_road(road = "A45", year = c(2000, 2010, 2018))
+#' fetch_traffic_road(road = "A45", direction = TRUE)
+#' fetch_traffic_road(road = "A45", year = 2000, raw = TRUE)
+#'
+#' @export
+
+fetch_traffic_road <- function(
+  road = NA,
+  year = NA,
+  direction = FALSE,
+  raw = FALSE) {
+
+  error <- process_error(
+    road,
+    "road_name",
+    "road",
+    year,
+    direction,
+    raw)
+
+  if (error != "No error") {
+    stop(error)
+  }
+
+  road <- process_road(road)
+  filters <- process_filters(road_name = road, year = year)
+  direction_raw <- process_direction_raw(direction, raw)
+  api_url <- process_pagination(
+    stringr::str_glue("{URL_API_FEED}{direction_raw}{filters}"))
   result <- process_columns_api(process_dir_codes(process_api_url(api_url)))
   result
 }

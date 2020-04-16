@@ -92,3 +92,15 @@ process_api_url <- function(api_url) {
 process_num_char <- function(x) {
   x <- as.character(stringr::str_c(x, collapse = ","))
 }
+
+#' Process maximum year
+#'
+#' @keywords internal
+
+process_max_year <- function() {
+  max_page <- process_max_page(
+    stringr::str_glue("{URL_API_FEED}{AADF}"))
+  max_page <- jsonlite::fromJSON(
+    stringr::str_glue("{URL_API_FEED}{AADF}&page%5Bnumber%5D={max_page}"))
+  max_year <- max(max_page$data$year)
+}

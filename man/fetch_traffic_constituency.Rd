@@ -4,7 +4,7 @@
 \alias{fetch_traffic_constituency}
 \title{Fetch road traffic data for a constituency}
 \usage{
-fetch_traffic_constituency(constituency = NA, year = 2000:2018,
+fetch_traffic_constituency(constituency = NA, year = NA,
   direction = FALSE, raw = FALSE)
 }
 \arguments{

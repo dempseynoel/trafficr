@@ -45,6 +45,21 @@ process_region <- function(region = NA) {
   }
 }
 
+#' Process road name
+#'
+#' @keywords internal
+
+process_road <- function(road = NA) {
+  if (is.na(process_concatenate(road)) == FALSE) {
+    data <- trafficr:::data
+    road <- dplyr::filter(data, road_name %in% road) %>%
+      dplyr::select(road_name)
+    road <- stringr::str_c(unique(road$road_name), collapse = ",")
+  } else {
+    road <- NA
+  }
+}
+
 #' Process concatenation of multiple locations
 #'
 #' @keywords internal

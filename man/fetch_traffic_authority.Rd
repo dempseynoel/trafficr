@@ -4,8 +4,8 @@
 \alias{fetch_traffic_authority}
 \title{Fetch road traffic data for a local authority}
 \usage{
-fetch_traffic_authority(authority = NA, year = 2000:2018,
-  direction = FALSE, raw = FALSE)
+fetch_traffic_authority(authority = NA, year = NA, direction = FALSE,
+  raw = FALSE)
 }
 \arguments{
 \item{authority}{A character string of the GB local authority

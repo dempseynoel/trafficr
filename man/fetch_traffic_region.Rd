@@ -4,8 +4,8 @@
 \alias{fetch_traffic_region}
 \title{Fetch road traffic data for a region}
 \usage{
-fetch_traffic_region(region = NA, year = 2000:2018,
-  direction = FALSE, raw = FALSE)
+fetch_traffic_region(region = NA, year = NA, direction = FALSE,
+  raw = FALSE)
 }
 \arguments{
 \item{region}{A character string of the GB region

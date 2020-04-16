@@ -13,12 +13,15 @@
 #' @keywords internal
 
 process_error <- function(geography, column_name, message, year, direction, raw) {
+  max_year <- process_max_year()
   if (is.na(stringr::str_c(geography, collapse = ""))) {
     error <- error_geography(message)
   } else if (FALSE %in% (geography %in% trafficr:::data[[column_name]])) {
    error <- error_name(message)
-  } else if (min(year) < 2000) {
-    error <- error_year()
+  } else if (!is.na(stringr::str_c(year, collapse = "")) & min(year) < 2000) {
+    error <- error_year_min()
+  } else if (!is.na(stringr::str_c(year, collapse = "")) & max(year) > max_year) {
+    error <- error_year_max(max_year)
   } else if (typeof(direction) != "logical") {
     error <- error_direction_boolean()
   } else if (typeof(raw) != "logical") {
@@ -50,12 +53,20 @@ error_name <- function(x) {
   stringr::str_glue("Supply the name(s) of a {x}.")
 }
 
-#' Error year
+#' Error year minimum
 #'
 #' @keywords internal
 
-error_year <- function() {
+error_year_min <- function() {
   stringr::str_glue("The argument 'year' cannot be earlier than 2000.")
+}
+
+#' Error year maximum
+#'
+#' @keywords internal
+
+error_year_max <- function(max_year) {
+  stringr::str_glue("The argument 'year' cannot be later than {max_year}.")
 }
 
 #' Error direction boolean
