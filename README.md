@@ -48,6 +48,17 @@ Fetches the average annual daily flow of road raffic recorded on all count point
 - raw: A boolean which if TRUE shows the actual manual counts taken at count point locations. Raw counts are collected by trained enumerators and are used to feed into calculating the average daily flow estimates. It is set to FALSE by default.
 
 ```r
+trafficr::fetch_traffic_road(road = NA, year = NA, direction = FALSE, raw = FALSE)
+```
+Fetches the average annual daily flow of road raffic recorded on all count points along a given road since the year 2000. Results are returned as a tibble.
+
+- region: A character string of the road / roads of interest written within a pair of single or double qoutes.
+- year: A numeric indicating which year of data is needed. Year cannot be smaller than 2000.
+- direction: A boolean which if TRUE shows the average annual daily flow of road traffic by direction of travel. It is set FALSE by default.
+- raw: A boolean which if TRUE shows the actual manual counts taken at count point locations. Raw counts are collected by trained enumerators and are used to feed into calculating the average daily flow estimates. It is set to FALSE by default.
+
+
+```r
 trafficr::fetch_traffic_all(direction = FALSE)
 ```
 Fetches the average annual daily flow of road raffic recorded on all count points within Great Britain since the year 2000. Results are returned as a tibble.
@@ -91,6 +102,14 @@ fetch_traffic_region(region = "London", year = 2000:2005)
 fetch_traffic_region(region = "London", year = c(2000, 2010, 2018))
 fetch_traffic_region(region = "London", direction = TRUE)
 fetch_traffic_region(region = "London", year = 2000, raw = TRUE)
+
+fetch_traffic_road(road = "A45")
+fetch_traffic_road(road = c("A45", "A665"), year = 2000)
+fetch_traffic_road(road = "A45", year = 2000:2005)
+fetch_traffic_road(road = "A45", year = c(2000, 2010, 2018))
+fetch_traffic_road(road = "A45", direction = TRUE)
+fetch_traffic_road(road = "A45", year = 2000, raw = TRUE)
+
 
 fetch_traffic_all(direction = TRUE)
 ```
