@@ -80,6 +80,8 @@ fetch_traffic_constituency <- function(
 #' fetch_traffic_authority(authority = "Swansea", year = c(2000, 2010, 2018))
 #' fetch_traffic_authority(authority = "Swansea", direction = TRUE)
 #' fetch_traffic_authority(authority = "Swansea", year = 2000, raw = TRUE)
+#'
+#' @export
 
 fetch_traffic_authority <- function(
   authority = NA,
@@ -134,6 +136,8 @@ fetch_traffic_authority <- function(
 #' fetch_traffic_region(region = "London", year = c(2000, 2010, 2018))
 #' fetch_traffic_region(region = "London", direction = TRUE)
 #' fetch_traffic_region(region = "London", year = 2000, raw = TRUE)
+#'
+#' @export
 
 fetch_traffic_region <- function(
   region = NA,
@@ -177,6 +181,8 @@ fetch_traffic_region <- function(
 #' @examples
 #' fetch_traffic_all()
 #' fetch_traffic_all(direction = TRUE)
+#'
+#' @export
 
 fetch_traffic_all <- function(direction = FALSE) {
 
@@ -205,6 +211,8 @@ fetch_traffic_all <- function(direction = FALSE) {
 #'
 #' @examples
 #' fetch_traffic_region_historic()
+#'
+#' @export
 
 fetch_traffic_region_historic <- function() {
   result <- readr::read_csv(REGION_HISTORIC, col_types = readr::cols()) %>%
@@ -241,6 +249,8 @@ fetch_traffic_region_historic <- function() {
 #'
 #' @examples
 #' fetch_traffic_authority_historic()
+#'
+#' @export
 
 fetch_traffic_authority_historic <- function() {
   readr::read_csv(AUTHORITY_HISTORIC, col_types = readr::cols()) %>%
