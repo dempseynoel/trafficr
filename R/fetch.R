@@ -31,7 +31,7 @@
 
 fetch_traffic_constituency <- function(
   constituency = NA,
-  year = NA,
+  year = 2000:2018,
   direction = FALSE,
   raw = FALSE) {
 
@@ -87,7 +87,7 @@ fetch_traffic_constituency <- function(
 
 fetch_traffic_authority <- function(
   authority = NA,
-  year = NA,
+  year = 2000:2018,
   direction = FALSE,
   raw = FALSE) {
 
@@ -143,7 +143,7 @@ fetch_traffic_authority <- function(
 
 fetch_traffic_region <- function(
   region = NA,
-  year = NA,
+  year = 2000:2018,
   direction = FALSE,
   raw = FALSE) {
 
