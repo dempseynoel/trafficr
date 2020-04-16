@@ -37,4 +37,5 @@ fetch_traffic_constituency(constituency = "St Ives", year = 2000:2005)
 fetch_traffic_constituency(constituency = "St Ives", year = c(2000, 2010, 2018))
 fetch_traffic_constituency(constituency = "St Ives", direction = TRUE)
 fetch_traffic_constituency(constituency = "St Ives", year = 2000, raw = TRUE)
+
 }
