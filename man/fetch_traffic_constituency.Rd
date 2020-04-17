@@ -4,8 +4,12 @@
 \alias{fetch_traffic_constituency}
 \title{Fetch road traffic data for a constituency}
 \usage{
-fetch_traffic_constituency(constituency = NA, year = NA,
-  direction = FALSE, raw = FALSE)
+fetch_traffic_constituency(
+  constituency = NA,
+  year = NA,
+  direction = FALSE,
+  raw = FALSE
+)
 }
 \arguments{
 \item{constituency}{A character string of the GB parliamentary constituency
@@ -26,7 +30,7 @@ A tibble showing the average annual daily flow of traffic for
 a given constituency.
 }
 \description{
-\code {fetch_traffic_constituency} fetches the average annual daily flow
+\code{fetch_traffic_constituency} fetches the average annual daily flow
 of road raffic recorded on all count points within a given GB Parliamentary
 constituency since the year 2000. Results are returned as a tibble.
 }

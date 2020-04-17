@@ -16,7 +16,7 @@ process_error <- function(geography, column_name, message, year, direction, raw)
   max_year <- process_max_year()
   if (is.na(stringr::str_c(geography, collapse = ""))) {
     error <- error_geography(message)
-  } else if (FALSE %in% (geography %in% trafficr:::data[[column_name]])) {
+  } else if (FALSE %in% (geography %in% DATASET[[column_name]])) {
    error <- error_name(message)
   } else if (!is.na(stringr::str_c(year, collapse = "")) & min(year) < 2000) {
     error <- error_year_min()

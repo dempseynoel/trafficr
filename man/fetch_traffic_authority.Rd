@@ -4,8 +4,12 @@
 \alias{fetch_traffic_authority}
 \title{Fetch road traffic data for a local authority}
 \usage{
-fetch_traffic_authority(authority = NA, year = NA, direction = FALSE,
-  raw = FALSE)
+fetch_traffic_authority(
+  authority = NA,
+  year = NA,
+  direction = FALSE,
+  raw = FALSE
+)
 }
 \arguments{
 \item{authority}{A character string of the GB local authority
@@ -26,7 +30,7 @@ A tibble showing the average annual daily flow of traffic for
 a given local authority.
 }
 \description{
-\code {fetch_traffic_authority} fetches the average annual daily flow
+\code{fetch_traffic_authority} fetches the average annual daily flow
 of road raffic recorded on all count points within a given GB local
 authority since the year 2000. Results are returned as a tibble.
 }

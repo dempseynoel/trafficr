@@ -11,7 +11,7 @@ A tibble showing the annual total volume of road traffic across
 each GB region since 1993.
 }
 \description{
-\code {fetch_traffic_region_historic} fetches the annual total volume of road
+\code{fetch_traffic_region_historic} fetches the annual total volume of road
 traffic across each GB region since 1993. Results are returned as a tibble.
 }
 \examples{

@@ -4,10 +4,12 @@
 \alias{fetch_traffic_road}
 \title{Fetch road traffic data for a road}
 \usage{
-fetch_traffic_road(road = NA, year = NA, direction = FALSE,
-  raw = FALSE)
+fetch_traffic_road(road = NA, year = NA, direction = FALSE, raw = FALSE)
 }
 \arguments{
+\item{road}{A character string of the official road name
+of interest written within a pair of single or double qoutes.}
+
 \item{year}{A numeric no smaller than 2000.}
 
 \item{direction}{A boolean which if TRUE shows the average annual daily flow
@@ -17,16 +19,13 @@ of road traffic by direction of travel. It is set FALSE by default.}
 count point locations. Raw counts are collected by trained enumerators and
 are used to feed into calculating the average daily flow estimates.
 It is set to FALSE by default.}
-
-\item{region}{A character string of the official road name
-of interest written within a pair of single or double qoutes.}
 }
 \value{
 A tibble showing the average annual daily flow of traffic for
 a given road.
 }
 \description{
-\code {fetch_traffic_road} fetches the average annual daily flow
+\code{fetch_traffic_road} fetches the average annual daily flow
 of road raffic recorded on all count points along a road
 since the year 2000. Results are returned as a tibble.
 }
