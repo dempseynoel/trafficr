@@ -4,8 +4,7 @@
 \alias{fetch_traffic_region}
 \title{Fetch road traffic data for a region}
 \usage{
-fetch_traffic_region(region = NA, year = NA, direction = FALSE,
-  raw = FALSE)
+fetch_traffic_region(region = NA, year = NA, direction = FALSE, raw = FALSE)
 }
 \arguments{
 \item{region}{A character string of the GB region
@@ -26,7 +25,7 @@ A tibble showing the average annual daily flow of traffic for
 a given region.
 }
 \description{
-\code {fetch_traffic_region} fetches the average annual daily flow
+\code{fetch_traffic_region} fetches the average annual daily flow
 of road raffic recorded on all count points within a given GB region
 since the year 2000. Results are returned as a tibble.
 }
@@ -35,7 +34,6 @@ fetch_traffic_region(region = "London")
 fetch_traffic_region(region = c("London", "South West"), year = 2000)
 fetch_traffic_region(region = "London", year = 2000:2005)
 fetch_traffic_region(region = "London", year = c(2000, 2010, 2018))
-fetch_traffic_region(region = "London", direction = TRUE)
 fetch_traffic_region(region = "London", year = 2000, raw = TRUE)
 
 }

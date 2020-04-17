@@ -6,9 +6,9 @@
 
 process_constituency <- function(constituency = NA) {
   if (is.na(process_concatenate(constituency)) == FALSE) {
-    data <- trafficr:::data
-    count_point_id <- dplyr::filter(data, constituency_name %in% constituency) %>%
-      dplyr::select(count_point_id)
+    data <- DATASET
+    count_point_id <- dplyr::filter(data, .data$constituency_name %in% constituency) %>%
+      dplyr::select(.data$count_point_id)
     count_point_id <- stringr::str_c(count_point_id$count_point_id, collapse = ",")
   } else {
     count_point_id <- NA
@@ -21,9 +21,9 @@ process_constituency <- function(constituency = NA) {
 
 process_authority <- function(authority = NA) {
   if (is.na(process_concatenate(authority)) == FALSE) {
-    data <- trafficr:::data
-    authority_id <- dplyr::filter(data, local_authority_name %in% authority) %>%
-      dplyr::select(local_authority_id)
+    data <- DATASET
+    authority_id <- dplyr::filter(data, .data$local_authority_name %in% authority) %>%
+      dplyr::select(.data$local_authority_id)
     authority_id <- stringr::str_c(unique(authority_id$local_authority_id), collapse = ",")
   } else {
     authority_id <- NA
@@ -36,9 +36,9 @@ process_authority <- function(authority = NA) {
 
 process_region <- function(region = NA) {
   if (is.na(process_concatenate(region)) == FALSE) {
-    data <- trafficr:::data
-    region_id <- dplyr::filter(data, region_name %in% region) %>%
-      dplyr::select(region_id)
+    data <- DATASET
+    region_id <- dplyr::filter(data, .data$region_name %in% region) %>%
+      dplyr::select(.data$region_id)
     region_id <- stringr::str_c(unique(region_id$region_id), collapse = ",")
   } else {
     region_id <- NA
@@ -51,9 +51,9 @@ process_region <- function(region = NA) {
 
 process_road <- function(road = NA) {
   if (is.na(process_concatenate(road)) == FALSE) {
-    data <- trafficr:::data
-    road <- dplyr::filter(data, road_name %in% road) %>%
-      dplyr::select(road_name)
+    data <- DATASET
+    road <- dplyr::filter(data, .data$road_name %in% road) %>%
+      dplyr::select(.data$road_name)
     road <- stringr::str_c(unique(road$road_name), collapse = ",")
   } else {
     road <- NA

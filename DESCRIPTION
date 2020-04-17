@@ -6,14 +6,17 @@ Author: Noel Dempsey
 Maintainer: Noel Dempsey <noel.dempsey@outlook.com>
 Description: A package for downloading data from the DfT Road Traffic
     Statistics API.
-License: MIT
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
+Depends: R (>= 3.2.0)
 Imports: 
   dplyr,
-  stringr,
-  tibble,
-  purrr,
   jsonlite,
-  magrittr
-RoxygenNote: 6.1.1
+  magrittr,
+  purrr,
+  readr,
+  rlang,
+  stringr,
+  tibble
+RoxygenNote: 7.1.0

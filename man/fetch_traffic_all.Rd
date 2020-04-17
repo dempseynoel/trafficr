@@ -12,10 +12,10 @@ of road traffic by direction of travel. It is set FALSE by default.}
 }
 \value{
 A tibble showing the average annual daily flow of traffic for
-all counts in Great Britain.
+  all counts in Great Britain.
 }
 \description{
-\code {fetch_traffic_all} fetches the average annual daily flow
+\code{fetch_traffic_all} fetches the average annual daily flow
 of road raffic recorded on all count points within Great Britain since
 the year 2000. Results are returned as a tibble.
 }

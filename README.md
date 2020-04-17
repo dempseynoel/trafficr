@@ -16,7 +16,7 @@ For more information on the methodology of how road traffic data is collected re
 
 ## Usage
 ```r 
-trafficr::fetch_traffic_constituency(constituency, year, direction = FALSE, raw = FALSE)
+trafficr::fetch_traffic_constituency(constituency = NA, year = NA, direction = FALSE, raw = FALSE)
 ```
 Fetches the average annual daily flow of road raffic recorded on all count points within a given GB Parliamentary constituency since the year 2000. Results are returned as a tibble. 
 
@@ -28,7 +28,7 @@ Fetches the average annual daily flow of road raffic recorded on all count point
 The constituency which a count point is located is not described in the API. The trafficr package uses the longitude/latitude of count points and allocates them to a constituency based on current boundaries.
 
 ```r
-trafficr::fetch_traffic_authority(authority, year, direction = FALSE, raw = FALSE)
+trafficr::fetch_traffic_authority(authority = NA, year = NA, direction = FALSE, raw = FALSE)
 ```
 Fetches the average annual daily flow of road raffic recorded on all count points within a given GB local authority since the year 2000. Results are returned as a tibble.
 
@@ -38,7 +38,7 @@ Fetches the average annual daily flow of road raffic recorded on all count point
 - raw: A boolean which if TRUE shows the actual manual counts taken at count point locations. Raw counts are collected by trained enumerators and are used to feed into calculating the average daily flow estimates. It is set to FALSE by default.
 
 ```r
-trafficr::fetch_traffic_region(region, year, direction = FALSE, raw = FALSE)
+trafficr::fetch_traffic_region(region = NA, year = NA, direction = FALSE, raw = FALSE)
 ```
 Fetches the average annual daily flow of road raffic recorded on all count points within a given GB region since the year 2000. Results are returned as a tibble.
 
@@ -48,7 +48,7 @@ Fetches the average annual daily flow of road raffic recorded on all count point
 - raw: A boolean which if TRUE shows the actual manual counts taken at count point locations. Raw counts are collected by trained enumerators and are used to feed into calculating the average daily flow estimates. It is set to FALSE by default.
 
 ```r
-trafficr::fetch_traffic_road(road, year, direction = FALSE, raw = FALSE)
+trafficr::fetch_traffic_road(road = NA, year = NA, direction = FALSE, raw = FALSE)
 ```
 Fetches the average annual daily flow of road raffic recorded on all count points along a given road since the year 2000. Results are returned as a tibble.
 

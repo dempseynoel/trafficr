@@ -24,44 +24,46 @@ process_dir_codes <- function(result) {
 #' @keywords internal
 
 process_columns_api <- function(x) {
-  data <- dplyr::select(trafficr:::data,
-    count_point_id,
-    region_name,
-    region_ons_code,
-    local_authority_name,
-    local_authority_code,
-    constituency_name,
-    constituency_ons_code,
-    road_category_desc)
+  data <- dplyr::select(
+    DATASET,
+    .data$count_point_id,
+    .data$region_name,
+    .data$region_ons_code,
+    .data$local_authority_name,
+    .data$local_authority_code,
+    .data$constituency_name,
+    .data$constituency_ons_code,
+    .data$road_category_desc)
   data <- x %>%
     dplyr::left_join(data, by = c(count_point_id = "count_point_id")) %>%
-    dplyr::rename(local_authority_ons_code = local_authority_code)
-  data <- dplyr::select(data,
-    count_point_id,
-    year,
-    region_id,
-    region_ons_code,
-    region_name,
-    local_authority_id,
-    local_authority_ons_code,
-    local_authority_name,
-    constituency_ons_code,
-    constituency_name,
-    easting,
-    northing,
-    latitude,
-    longitude,
-    road_name,
-    road_category,
-    road_category_desc,
-    road_type,
-    start_junction_road_name,
-    end_junction_road_name,
-    link_length_km,
-    link_length_miles,
+    dplyr::rename(local_authority_ons_code = .data$local_authority_code)
+  data <- dplyr::select(
+    data,
+    .data$count_point_id,
+    .data$year,
+    .data$region_id,
+    .data$region_ons_code,
+    .data$region_name,
+    .data$local_authority_id,
+    .data$local_authority_ons_code,
+    .data$local_authority_name,
+    .data$constituency_ons_code,
+    .data$constituency_name,
+    .data$easting,
+    .data$northing,
+    .data$latitude,
+    .data$longitude,
+    .data$road_name,
+    .data$road_category,
+    .data$road_category_desc,
+    .data$road_type,
+    .data$start_junction_road_name,
+    .data$end_junction_road_name,
+    .data$link_length_km,
+    .data$link_length_miles,
     dplyr::everything(),
-    -sequence,
-    -ramp)
+    -.data$sequence,
+    -.data$ramp)
   data$road_type <- stringr::str_to_title(data$road_type)
   data
 }
@@ -71,41 +73,43 @@ process_columns_api <- function(x) {
 #' @keywords internal
 
 process_columns_download <- function(x) {
-  data <- dplyr::select(trafficr:::data,
-    count_point_id,
-    constituency_name,
-    constituency_ons_code,
-    road_category_desc)
+  data <- dplyr::select(
+    DATASET,
+    .data$count_point_id,
+    .data$constituency_name,
+    .data$constituency_ons_code,
+    .data$road_category_desc)
   data <- x %>%
     dplyr::left_join(data, by = c(count_point_id = "count_point_id"))
   data <- data %>%
-    dplyr::rename(local_authority_ons_code = local_authority_code)
-  data <- dplyr::select(data,
-      count_point_id,
-      year,
-      estimation_method,
-      region_id,
-      region_ons_code,
-      region_name,
-      local_authority_id,
-      local_authority_ons_code,
-      local_authority_name,
-      constituency_ons_code,
-      constituency_name,
-      easting,
-      northing,
-      latitude,
-      longitude,
-      road_name,
-      road_category,
-      road_category_desc,
-      road_type,
-      start_junction_road_name,
-      end_junction_road_name,
-      link_length_km,
-      link_length_miles,
+    dplyr::rename(local_authority_ons_code = .data$local_authority_code)
+  data <- dplyr::select(
+      data,
+      .data$count_point_id,
+      .data$year,
+      .data$estimation_method,
+      .data$region_id,
+      .data$region_ons_code,
+      .data$region_name,
+      .data$local_authority_id,
+      .data$local_authority_ons_code,
+      .data$local_authority_name,
+      .data$constituency_ons_code,
+      .data$constituency_name,
+      .data$easting,
+      .data$northing,
+      .data$latitude,
+      .data$longitude,
+      .data$road_name,
+      .data$road_category,
+      .data$road_category_desc,
+      .data$road_type,
+      .data$start_junction_road_name,
+      .data$end_junction_road_name,
+      .data$link_length_km,
+      .data$link_length_miles,
       dplyr::everything(),
-      -estimation_method_detailed)
+      -.data$estimation_method_detailed)
   data$road_type <- stringr::str_to_title(data$road_type)
   data
 }
